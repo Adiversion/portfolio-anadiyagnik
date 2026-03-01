@@ -1,0 +1,99 @@
+---
+const info = [
+  { label: "📍 Location",     value: "Raipur, Chhattisgarh, India" },
+  { label: "💼 Current Role", value: "Senior Accountant · Finance Automation Lead<br/>RBP Energy (India) Pvt. Ltd." },
+  { label: "📬 Email",        value: '<a href="mailto:anadisyagnik@gmail.com">anadisyagnik@gmail.com</a>' },
+  { label: "🔗 LinkedIn",     value: '<a href="https://linkedin.com/in/anadi-yagnik" target="_blank">linkedin.com/in/anadi-yagnik</a>' },
+  { label: "🌐 Languages",    value: "Hindi · English · Odia" },
+];
+---
+
+<section class="about" id="about">
+  <div class="section-label">About me</div>
+  <div class="about-grid">
+
+    <div class="about-text">
+      <h2>Where <em>Finance</em> Meets Automation</h2>
+      <p>
+        Over 12+ years working across manufacturing, energy, logistics, and trading, I've
+        evolved from a traditional accountant into a <strong>techno-functional finance specialist</strong>.
+        I operate at the intersection of complex multi-entity tax compliance and data automation.
+      </p>
+      <p>
+        While most finance teams rely on manual data entry and exports, I engineer
+        <strong>automated solutions</strong> using Advanced Excel, VBA macros, Power Query,
+        and Tally ODBC connections — pulling real-time data directly from the ERP
+        and eliminating repetitive work at every step.
+      </p>
+      <p>
+        Currently at <strong>RBP Energy (India) Pvt. Ltd.</strong>, I manage end-to-end
+        GST/TDS compliance for a group of 8 entities — all backed by custom tools
+        I built from scratch to handle scale and accuracy at pace.
+      </p>
+    </div>
+
+    <div class="about-info">
+      {info.map(item => (
+        <div class="info-card">
+          <div class="info-card-label">{item.label}</div>
+          <div class="info-card-value" set:html={item.value} />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about { background: var(--navy-2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--slate-lt);
+    line-height: 1.9;
+  }
+  .about-text strong { color: var(--gold-lt); }
+
+  .about-info { display: flex; flex-direction: column; gap: 1rem; }
+
+  .info-card {
+    border: 1px solid var(--border);
+    background: var(--navy-3);
+    padding: 1.25rem 1.75rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .info-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+  }
+  .info-card-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .info-card-value {
+    font-size: 0.95rem;
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>

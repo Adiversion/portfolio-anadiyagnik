@@ -1,0 +1,96 @@
+---
+const links = [
+  { href: "#about",      label: "About" },
+  { href: "#skills",     label: "Skills" },
+  { href: "#projects",   label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact",    label: "Contact" },
+];
+---
+
+<nav>
+  <div class="nav-logo">A. Yagnik</div>
+  <div class="nav-links">
+    {links.map(l => <a href={l.href}>{l.label}</a>)}
+  </div>
+  <button class="nav-hamburger" aria-label="Toggle menu" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<style>
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(11,15,26,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+  }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-lt); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--slate-lt);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(17,24,39,0.97);
+      backdrop-filter: blur(16px);
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const links = document.querySelector('.nav-links');
+  btn?.addEventListener('click', () => links?.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => links?.classList.remove('open'))
+  );
+</script>

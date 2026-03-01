@@ -1,0 +1,154 @@
+---
+const jobs = [
+  {
+    date: "Jul 2025 – Present",
+    title: "Senior Accountant · Finance Automation Lead",
+    company: "RBP Energy (India) Pvt. Ltd.",
+    location: "Raipur, Chhattisgarh",
+    bullets: [
+      "Managing end-to-end GST/TDS filings for a group of 8 entities, ensuring 100% statutory compliance.",
+      `Built a "Direct-from-Tally" TDS calculator using ODBC integration, cutting monthly processing time by 70% (~24 man-hours saved/month).`,
+      "Developed LoanGuard Pro, automating multi-crore corporate loan amortisation and payment tracking via Power Query M scripts and VBA macros.",
+      "Transitioned the finance function from manual ledger exports to automated Excel dashboards, improving audit readiness and reducing query turnaround time by ~50%.",
+    ],
+  },
+  {
+    date: "Oct 2022 – Jun 2025",
+    title: "Senior Accounts & GST Compliance Officer",
+    company: "Lupin Gases Pvt. Ltd.",
+    location: "Raipur, Chhattisgarh",
+    bullets: [
+      "Built Excel/Pivot Table GST reconciliation templates that cut monthly reconciliation time by ~50% and improved ITC recovery.",
+      "Full-cycle GST compliance: GSTR-1, GSTR-3B, and ITC reconciliation reports (2A/2B).",
+      "Managed GST ASMT-10 compliances and notices strictly within legal timelines.",
+      "Led month-end and year-end closing, including tax and compliance reporting.",
+    ],
+  },
+  {
+    date: "Jun 2020 – Sep 2022",
+    title: "Senior Accountant",
+    company: "New Bombay Paper Mills Pvt. Ltd.",
+    location: "Navi Mumbai, Maharashtra",
+    bullets: [
+      "Filed GSTR-1/3B and reconciled ITC and tax liabilities against Forms 2A/2B/8A.",
+      "Prepared depreciation, fixed asset, and tax reconciliation schedules for statutory audit.",
+      "Verified import purchase data and ensured accurate IGST entries using bills of entry.",
+    ],
+  },
+  {
+    date: "May 2017 – Jun 2020",
+    title: "Accounts Executive",
+    company: "New Bombay Paper Mills Pvt. Ltd.",
+    location: "Navi Mumbai, Maharashtra",
+    bullets: [
+      "Developed loan EMI, cash flow planning, and receivables dashboards in Excel.",
+      "Handled day-to-day accounting, GST reconciliations for export/interstate/intrastate sales.",
+      "Provided reconciled ledgers and bank statements to support statutory audits.",
+    ],
+  },
+  {
+    date: "Jul 2013 – Dec 2016",
+    title: "Accounts Assistant / Billing Executive",
+    company: "Seth Banshidhar Kedia · Jain Transport · Global Packaging",
+    location: "Chhattisgarh",
+    bullets: [
+      "Managed end-to-end sales order, invoicing, and LR billing using Excel and Tally-based templates.",
+      "Maintained accurate input/output records to support tax and compliance documentation.",
+    ],
+  },
+];
+---
+
+<section class="experience" id="experience">
+  <div class="section-label">Work History</div>
+  <h2><em>Experience</em></h2>
+  <p class="section-intro">
+    A decade-plus journey from billing executive to finance automation lead,
+    building real solutions at every stage.
+  </p>
+
+  <div class="exp-timeline">
+    {jobs.map(job => (
+      <div class="exp-item">
+        <div class="exp-date">{job.date}</div>
+        <div class="exp-title">{job.title}</div>
+        <div class="exp-company">
+          <span>{job.company}</span> · {job.location}
+        </div>
+        <ul class="exp-bullets">
+          {job.bullets.map(b => <li>{b}</li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .experience { background: var(--navy); }
+
+  .exp-timeline {
+    position: relative;
+    padding-left: 2rem;
+    max-width: 860px;
+  }
+  .exp-timeline::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0; left: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-dim), transparent);
+  }
+
+  .exp-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+    padding-left: 2.5rem;
+  }
+  .exp-item::before {
+    content: '';
+    position: absolute; left: -2.35rem; top: 0.35rem;
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 2px solid var(--navy);
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
+  }
+
+  .exp-date {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .exp-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+  .exp-company {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--slate);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+  .exp-company span { color: var(--slate-lt); }
+
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--slate-lt);
+    line-height: 1.7;
+  }
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+</style>

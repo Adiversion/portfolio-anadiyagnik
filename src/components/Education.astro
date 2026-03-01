@@ -1,0 +1,123 @@
+---
+const edu = [
+  {
+    year: "2012",
+    degree: "Higher Secondary School Certificate (Commerce)",
+    school: "Chhattisgarh Board of Secondary Education (CGBSE)",
+    highlight: false,
+  },
+  {
+    year: "2014 – 2017",
+    degree: "Bachelor of Commerce (B.Com)",
+    school: "Indira Gandhi National Open University (IGNOU), Distance Learning",
+    highlight: false,
+  },
+  {
+    year: "Completed 2023",
+    degree: "Advanced Excel & VBA for Business",
+    school: "Professional Certification · Applied in production tools",
+    highlight: false,
+  },
+  {
+    year: "2026",
+    degree: "Data Analysis with Excel & Power Query",
+    school: "Professional Certification · In Progress",
+    highlight: true,
+    status: "In Progress",
+  },
+];
+---
+
+<section class="education" id="education">
+  <div class="section-label">Education & Development</div>
+  <h2>Always <em>Learning</em></h2>
+  <p class="section-intro">
+    Formal education backed by continuous professional development in automation and data skills.
+  </p>
+
+  <div class="edu-grid">
+    {edu.map(item => (
+      <div class={`edu-card ${item.highlight ? 'highlight' : ''}`}>
+        <div class="edu-year">{item.year}</div>
+        <div class="edu-degree">{item.degree}</div>
+        <div class="edu-school">{item.school}</div>
+        {item.status && <div class="edu-status">{item.status}</div>}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .education { background: var(--navy-2); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .edu-card {
+    border: 1px solid var(--border);
+    background: var(--navy-3);
+    padding: 2.5rem;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .edu-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .edu-card:hover { border-color: var(--border-s); }
+
+  .edu-card.highlight { border-color: rgba(62,207,142,0.3); }
+  .edu-card.highlight::before { background: linear-gradient(90deg, var(--green), transparent); }
+  .edu-card.highlight .edu-year { color: var(--green); }
+
+  .edu-year {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .edu-degree {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .edu-school { font-size: 0.88rem; color: var(--slate); line-height: 1.5; }
+
+  .edu-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.85rem;
+    background: rgba(62,207,142,0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    border: 1px solid rgba(62,207,142,0.2);
+  }
+  .edu-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @media (max-width: 600px) {
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+</style>

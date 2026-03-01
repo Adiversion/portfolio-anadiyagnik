@@ -1,0 +1,208 @@
+---
+// ─── ADD YOUR PROJECT IMAGES ────────────────────────────────────
+// Place images in /public/images/ and update the `image` paths below.
+// Recommended filenames: tds-engine.png, loan-guard-pro.png, pan-verify.png
+// Leave image as "" to keep the placeholder until you have screenshots ready.
+
+const projects = [
+  {
+    num: "01",
+    title: "Direct-from-Tally TDS Compliance Engine",
+    image: "/images/tds-engine.png",        // ← replace with your screenshot
+    imagePlaceholder: "🔌",
+    imageAlt: "TDS Compliance Engine screenshot",
+    desc: `Built a full-cycle TDS management system that connects Excel directly to Tally Prime
+      via ODBC, eliminating all manual ledger exports. Auto-calculates interest, late fees,
+      and flags "No PAN" entries for higher deduction under Section 206AA. Integrated with
+      TRACES portal for bulk PAN verification, instantly identifying inoperative PANs
+      (Aadhaar not linked) to enforce correct deduction rates.`,
+    impact: `Reduced the typical 3–4 day manual TDS cycle to <strong>~1 working day</strong>
+      across 8 group entities. PAN verification for 50+ records cut from ~4 hours to
+      <strong>15 minutes</strong>.`,
+    tech: ["Tally ODBC", "Advanced Excel", "TRACES Portal", "Section 206AA", "VBA"],
+    reverse: false,
+  },
+  {
+    num: "02",
+    title: "LoanGuard Pro — Automated Loan Tracking",
+    image: "/images/loan-guard-pro.png",    // ← replace with your screenshot
+    imagePlaceholder: "🛡️",
+    imageAlt: "LoanGuard Pro screenshot",
+    desc: `A robust Excel-based corporate loan management tool powered by Power Query M scripts
+      and VBA macros. Automatically generates EMI schedules for multiple loans, tracks
+      real-time outstanding balances, and sends reminders for upcoming payment obligations.
+      Handles multi-crore corporate loan amortisation across loan tenures from 1–8 years.`,
+    impact: `Achieved <strong>&gt;95% tracking accuracy</strong> over full loan lifecycles.
+      Eliminated missed payments and gave management real-time visibility into
+      outstanding obligations.`,
+    tech: ["Power Query / M", "VBA Macros", "EMI Scheduling", "Cash Flow"],
+    reverse: true,
+  },
+  {
+    num: "03",
+    title: "Bulk TRACES PAN Verification Tool",
+    image: "/images/pan-verify.png",        // ← replace with your screenshot
+    imagePlaceholder: "✅",
+    imageAlt: "Bulk PAN Verification Tool screenshot",
+    desc: `Designed an Excel-based tool that integrates with the TRACES portal for bulk PAN
+      validation at scale. Instantly flags "Inoperative" PANs where Aadhaar linking is
+      pending, ensuring the organisation applies correct deduction rates and stays compliant
+      with CBDT circular requirements. Eliminates manual one-by-one verification that was
+      previously a quarterly bottleneck.`,
+    impact: `Verification time for <strong>50+ PAN records</strong> slashed from ~4 hours to
+      just <strong>15 minutes</strong> during Q1–Q2 2025 compliance cycles.`,
+    tech: ["TRACES Portal", "Excel Automation", "CBDT Compliance", "PAN Validation"],
+    reverse: false,
+  },
+];
+---
+
+<section class="projects" id="projects">
+  <div class="section-label">Key Automation Projects</div>
+  <h2>Built <em>In-House</em>,<br />Deployed in Production</h2>
+  <p class="section-intro">
+    Every tool below was designed, built, and maintained by me — solving real compliance
+    and efficiency challenges at scale.
+  </p>
+
+  <div class="projects-list">
+    {projects.map(p => (
+      <div class={`project-card ${p.reverse ? 'reverse' : ''}`}>
+
+        <div class="project-img">
+          {p.image ? (
+            <img src={p.image} alt={p.imageAlt} loading="lazy" />
+          ) : (
+            <div class="project-img-placeholder">
+              <span class="placeholder-icon">{p.imagePlaceholder}</span>
+              <span>Add project screenshot</span>
+              <span class="placeholder-hint">{p.image || `images/project-0${p.num}.png`}</span>
+            </div>
+          )}
+        </div>
+
+        <div class="project-content">
+          <div class="project-num">PROJECT {p.num}</div>
+          <div class="project-title">{p.title}</div>
+          <p class="project-desc">{p.desc}</p>
+          <div class="project-impact">
+            <div class="project-impact-label">⚡ Impact</div>
+            <div class="project-impact-text" set:html={p.impact} />
+          </div>
+          <div class="project-tech">
+            {p.tech.map(t => <span class="tag">{t}</span>)}
+          </div>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .projects { background: var(--navy-2); }
+
+  .projects-list { display: flex; flex-direction: column; gap: 3rem; }
+
+  .project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    background: var(--navy-3);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .project-card:hover { border-color: var(--border-s); }
+  .project-card.reverse { direction: rtl; }
+  .project-card.reverse > * { direction: ltr; }
+
+  .project-img {
+    min-height: 340px;
+    position: relative;
+    overflow: hidden;
+    background: var(--navy-4);
+  }
+  .project-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .project-card:hover .project-img img { transform: scale(1.04); }
+
+  .project-img-placeholder {
+    width: 100%; height: 100%;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--slate);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-right: 1px solid var(--border);
+  }
+  .project-card.reverse .project-img-placeholder {
+    border-right: none;
+    border-left: 1px solid var(--border);
+  }
+  .placeholder-icon { font-size: 2.5rem; opacity: 0.3; }
+  .placeholder-hint { opacity: 0.4; font-size: 0.65rem; }
+
+  .project-content { padding: 3rem; }
+
+  .project-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .project-title {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--slate-lt);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-impact {
+    background: var(--navy-4);
+    border-left: 3px solid var(--green);
+    padding: 1rem 1.25rem;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 1.5rem;
+  }
+  .project-impact-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.35rem;
+  }
+  .project-impact-text { font-size: 0.9rem; color: var(--slate-lt); }
+  .project-impact-text :global(strong) { color: var(--green); }
+
+  .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  @media (max-width: 900px) {
+    .project-card,
+    .project-card.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .project-img { min-height: 220px; }
+    .project-img-placeholder { min-height: 220px; border: none !important; }
+    .project-content { padding: 2rem 1.75rem; }
+  }
+</style>

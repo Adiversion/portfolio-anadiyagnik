@@ -1,0 +1,98 @@
+---
+const skills = [
+  {
+    icon: "📊",
+    title: "Tax Compliance",
+    tags: ["GST · GSTR-1/3B/9", "TDS Management", "ITC Reconciliation (2A/2B)", "Section 206AA", "ASMT-10 Notices"],
+  },
+  {
+    icon: "⚙️",
+    title: "Automation & Data",
+    tags: ["Tally ODBC Integration", "VBA Macros", "Power Query / M", "TRACES Portal Automation", "Advanced Excel"],
+  },
+  {
+    icon: "🗂️",
+    title: "Financial Reporting",
+    tags: ["Month-End Closing", "Bank Reconciliation", "Ledger Reconciliation", "Statutory Audit Support", "Multi-Entity Accounting"],
+  },
+  {
+    icon: "🖥️",
+    title: "Software & Tools",
+    tags: ["Tally Prime", "Tally ERP 9", "Microsoft Office Suite", "Google Workspace", "Pivot Tables"],
+  },
+  {
+    icon: "📈",
+    title: "Dashboards & Analytics",
+    tags: ["Receivables Ageing", "Loan Amortization", "VLOOKUP / INDEX-MATCH", "Cash Flow Planning", "Compliance Dashboards"],
+  },
+  {
+    icon: "🏭",
+    title: "Industry Domains",
+    tags: ["Manufacturing", "Energy", "Logistics", "Trading", "Export / Import"],
+  },
+];
+---
+
+<section class="skills" id="skills">
+  <div class="section-label">Competencies</div>
+  <h2>What I <em>Bring</em></h2>
+  <p class="section-intro">
+    A combination of deep compliance expertise and hands-on automation engineering,
+    applied in production across real group entities.
+  </p>
+
+  <div class="skills-grid">
+    {skills.map(skill => (
+      <div class="skill-card">
+        <div class="skill-icon">{skill.icon}</div>
+        <div class="skill-title">{skill.title}</div>
+        <div class="skill-tags">
+          {skill.tags.map(t => <span class="tag">{t}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .skills { background: var(--navy); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    border: 1px solid var(--border);
+    background: var(--navy-3);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .skill-card:hover { border-color: var(--border-s); transform: translateY(-4px); }
+  .skill-card:hover::after { transform: scaleX(1); }
+
+  .skill-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .skill-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
+</style>
