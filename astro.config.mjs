@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://portfolio.anadisyagnik.workers.dev',
+  site: 'https://portfolio.pages.dev',
   integrations: [sitemap()],
   output: 'static',
 });
