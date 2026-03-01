@@ -1,5 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
@@ -11,10 +10,22 @@ import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout
-  title="Anadi Shankar Yagnik — Finance Automation Specialist"
-  description="Senior Accountant & Finance Automation Lead. Specialising in multi-entity GST/TDS compliance automated with Excel, VBA, Power Query, and Tally ODBC."
->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Senior Accountant & Finance Automation Lead. Specialising in multi-entity GST/TDS compliance automated with Excel, VBA, Power Query, and Tally ODBC." />
+  <meta property="og:title" content="Anadi Shankar Yagnik — Finance Automation Specialist" />
+  <meta property="og:description" content="Senior Accountant & Finance Automation Lead specialising in GST/TDS automation with Excel, VBA and Tally ODBC." />
+  <meta property="og:type" content="website" />
+  <title>Anadi Shankar Yagnik — Finance Automation Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
   <Nav />
   <main>
     <Hero />
@@ -32,7 +43,8 @@ import Footer from '../components/Footer.astro';
     <Contact />
   </main>
   <Footer />
-</BaseLayout>
+</body>
+</html>
 
 <script>
   // Scroll-reveal animation for cards and sections
