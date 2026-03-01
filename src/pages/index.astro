@@ -1,23 +1,70 @@
 ---
-// Zero imports — fully self-contained single file portfolio
+// ─── UPDATE IMAGE COUNTS HERE ─────────────────────────────
+// After uploading images to public/images/tds/, loan/, pan/
+// just change the numbers below and redeploy.
+const projects = [
+  {
+    id: "tds",
+    num: "01",
+    title: "Direct-from-Tally TDS Compliance Engine",
+    imageCount: 7,          // tds-1.png … tds-7.png
+    imagePrefix: "/images/tds/tds-",
+    desc: `Built a full-cycle TDS management system connecting Excel directly to Tally Prime
+via ODBC — eliminating all manual ledger exports. Auto-calculates interest, late fees,
+and flags "No PAN" entries for higher deduction under Section 206AA. Integrated with
+TRACES portal for bulk PAN verification, instantly identifying inoperative PANs.`,
+    impact: `Reduced 3–4 day manual TDS cycle to <strong>~1 working day</strong> across 8 entities.
+PAN verification for 50+ records: ~4 hours → <strong>15 minutes</strong>.`,
+    tech: ["Tally ODBC","Advanced Excel","TRACES Portal","Section 206AA","VBA"],
+    reverse: false,
+  },
+  {
+    id: "loan",
+    num: "02",
+    title: "LoanGuard Pro — Automated Loan Tracking",
+    imageCount: 5,          // loan-1.png … loan-7.png
+    imagePrefix: "/images/loan/loan-",
+    desc: `Robust Excel-based corporate loan management tool powered by Power Query M scripts
+and VBA macros. Automatically generates EMI schedules, tracks real-time outstanding
+balances, and sends reminders. Handles multi-crore amortisation across 1–8 year tenures.`,
+    impact: `Achieved <strong>&gt;95% tracking accuracy</strong> over full loan lifecycles.
+Eliminated missed payments and gave management real-time visibility.`,
+    tech: ["Power Query / M","VBA Macros","EMI Scheduling","Cash Flow"],
+    reverse: true,
+  },
+  {
+    id: "pan",
+    num: "03",
+    title: "Bulk TRACES PAN Verification Tool",
+    imageCount: 1,          // pan-1.png … pan-7.png
+    imagePrefix: "/images/pan/pan-",
+    desc: `Excel-based tool integrating with the TRACES portal for bulk PAN validation at scale.
+Instantly flags "Inoperative" PANs where Aadhaar linking is pending — ensuring correct
+deduction rates per CBDT circular and eliminating the manual one-by-one bottleneck.`,
+    impact: `Verification for <strong>50+ PAN records</strong> cut from ~4 hours to
+<strong>15 minutes</strong> during Q1–Q2 2025.`,
+    tech: ["TRACES Portal","Excel Automation","CBDT Compliance","PAN Validation"],
+    reverse: false,
+  },
+];
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Senior Accountant & Finance Automation Lead. GST/TDS compliance automated with Excel, VBA, Power Query and Tally ODBC." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Senior Accountant & Finance Automation Lead. GST/TDS compliance automated with Excel, VBA, Power Query and Tally ODBC."/>
   <title>Anadi Shankar Yagnik — Finance Automation Specialist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --navy:#0b0f1a; --navy2:#111827; --navy3:#1a2235; --navy4:#243049;
-      --gold:#c9a84c; --goldlt:#e3c97a; --golddim:#7a5f28;
-      --slate:#8a97b0; --slatelt:#bec8d9; --white:#f0f4ff; --green:#3ecf8e;
-      --border:rgba(201,168,76,0.18); --borders:rgba(201,168,76,0.35);
-      --serif:'DM Serif Display',serif; --mono:'DM Mono',monospace; --sans:'Instrument Sans',sans-serif;
+    :root{
+      --navy:#0b0f1a;--navy2:#111827;--navy3:#1a2235;--navy4:#243049;
+      --gold:#c9a84c;--goldlt:#e3c97a;--golddim:#7a5f28;
+      --slate:#8a97b0;--slatelt:#bec8d9;--white:#f0f4ff;--green:#3ecf8e;
+      --border:rgba(201,168,76,.18);--borders:rgba(201,168,76,.35);
+      --serif:'DM Serif Display',serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -31,7 +78,7 @@
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 4rem;background:rgba(11,15,26,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 4rem;background:rgba(11,15,26,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
     .nlogo{font-family:var(--serif);font-size:1.15rem;color:var(--gold)}
     .nlinks{display:flex;gap:2.5rem}
     .nlinks a{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);transition:color .2s}
@@ -100,14 +147,39 @@
     .pcard:hover{border-color:var(--borders)}
     .pcard.rev{direction:rtl}
     .pcard.rev>*{direction:ltr}
-    .pimg{min-height:340px;background:var(--navy4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;font-family:var(--mono);font-size:.75rem;color:var(--slate);letter-spacing:.1em;text-transform:uppercase;border-right:1px solid var(--border);overflow:hidden;position:relative}
-    .pcard.rev .pimg{border-right:none;border-left:1px solid var(--border)}
-    .pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-    .pcard:hover .pimg img{transform:scale(1.04)}
-    .pico{font-size:2.5rem;opacity:.3}
+
+    /* CAROUSEL */
+    .carousel{position:relative;min-height:380px;background:var(--navy4);overflow:hidden;border-right:1px solid var(--border);user-select:none}
+    .pcard.rev .carousel{border-right:none;border-left:1px solid var(--border)}
+
+    /* progress bar */
+    .carousel-progress{position:absolute;top:0;left:0;height:3px;background:var(--gold);width:0%;z-index:10;transition:width linear}
+
+    .carousel-track{display:flex;height:100%;will-change:transform}
+    .carousel-track.animating{transition:transform .5s cubic-bezier(.4,0,.2,1)}
+    .carousel-slide{min-width:100%;height:100%;min-height:380px;position:relative;flex-shrink:0}
+    .carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+    /* overlay gradient */
+    .carousel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,15,26,.7) 0%,transparent 40%);pointer-events:none;z-index:2}
+
+    /* controls bar */
+    .carousel-bar{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;z-index:3}
+    .cbtn{background:rgba(11,15,26,.6);border:1px solid rgba(201,168,76,.35);color:var(--gold);width:34px;height:34px;border-radius:3px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;line-height:1}
+    .cbtn:hover{background:rgba(201,168,76,.25);border-color:var(--gold)}
+    .cbtn:disabled{opacity:.2;cursor:not-allowed}
+    .cdots{display:flex;gap:.45rem;align-items:center;flex:1;justify-content:center}
+    .cdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;padding:0;transition:all .25s;flex-shrink:0}
+    .cdot.on{background:var(--gold);transform:scale(1.35)}
+    .ccounter{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.7);flex-shrink:0}
+
+    /* auto-play pause icon */
+    .cpause{background:rgba(11,15,26,.6);border:1px solid rgba(201,168,76,.2);color:rgba(255,255,255,.5);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.65rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;padding:0}
+    .cpause:hover{border-color:var(--gold);color:var(--gold)}
+
     .pbody{padding:3rem}
     .pnum{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--gold);margin-bottom:.75rem}
-    .ptitle{font-family:var(--serif);font-size:1.7rem;color:var(--white);margin-bottom:1rem;line-height:1.2}
+    .ptitle{font-family:var(--serif);font-size:1.65rem;color:var(--white);margin-bottom:1rem;line-height:1.2}
     .pdesc{font-size:.95rem;color:var(--slatelt);line-height:1.85;margin-bottom:1.5rem}
     .pimp{background:var(--navy4);border-left:3px solid var(--green);padding:1rem 1.25rem;border-radius:0 4px 4px 0;margin-bottom:1.5rem}
     .pilbl{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
@@ -177,14 +249,12 @@
       .agrid,.cgrid{grid-template-columns:1fr;gap:3rem}
       .sgrid{grid-template-columns:1fr 1fr}
       .pcard,.pcard.rev{grid-template-columns:1fr;direction:ltr}
-      .pimg{min-height:220px;border:none!important}
+      .carousel{min-height:240px;border:none!important}
+      .carousel-slide{min-height:240px}
       .edugrid{grid-template-columns:1fr}
       footer{padding:1.5rem;justify-content:center;text-align:center}
     }
-    @media(max-width:600px){
-      .sgrid{grid-template-columns:1fr}
-      .pbody{padding:1.75rem}
-    }
+    @media(max-width:600px){.sgrid{grid-template-columns:1fr}.pbody{padding:1.75rem}}
   </style>
 </head>
 <body>
@@ -193,10 +263,8 @@
 <nav>
   <div class="nlogo">A. Yagnik</div>
   <div class="nlinks" id="nl">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
+    <a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
   <button class="burger" id="burger" aria-label="Menu">
@@ -206,9 +274,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hgrid"></div>
-  <div class="hglow"></div>
-  <div class="hglow2"></div>
+  <div class="hgrid"></div><div class="hglow"></div><div class="hglow2"></div>
   <div class="hcontent">
     <div class="hbadge">Open to Remote Opportunities</div>
     <h1>Anadi Shankar<br/><em>Yagnik</em></h1>
@@ -235,7 +301,7 @@
     <div class="atext">
       <h2>Where <em>Finance</em> Meets Automation</h2>
       <p>Over 12+ years working across manufacturing, energy, logistics, and trading, I've evolved from a traditional accountant into a <strong>techno-functional finance specialist</strong> — operating at the intersection of complex multi-entity tax compliance and data automation.</p>
-      <p>While most finance teams rely on manual data entry, I engineer <strong>automated solutions</strong> using Advanced Excel, VBA macros, Power Query, and Tally ODBC connections — pulling real-time data directly from the ERP and eliminating repetitive work at every step.</p>
+      <p>While most finance teams rely on manual data entry, I engineer <strong>automated solutions</strong> using Advanced Excel, VBA macros, Power Query, and Tally ODBC connections — pulling real-time data directly from the ERP.</p>
       <p>Currently at <strong>RBP Energy (India) Pvt. Ltd.</strong>, managing end-to-end GST/TDS compliance for 8 group entities, backed entirely by custom automation tools I built from scratch.</p>
     </div>
     <div class="acards">
@@ -273,49 +339,45 @@
   <h2>Built <em>In-House</em>,<br/>Deployed in Production</h2>
   <p class="si">Every tool below was designed, built, and maintained by me — solving real compliance and efficiency challenges at scale.</p>
   <div class="plist">
+    {projects.map(p => (
+      <div class={`pcard${p.reverse?' rev':''}`}>
 
-    <div class="pcard">
-      <div class="pimg">
-        <!-- ADD IMAGE: place tds-engine.png in /public/images/ then replace below with: <img src="/images/tds-engine.png" alt="TDS Engine"/> -->
-        <span class="pico">🔌</span><span>tds-engine.png</span>
-      </div>
-      <div class="pbody">
-        <div class="pnum">PROJECT 01</div>
-        <div class="ptitle">Direct-from-Tally TDS Compliance Engine</div>
-        <p class="pdesc">Built a full-cycle TDS management system connecting Excel directly to Tally Prime via ODBC — eliminating all manual ledger exports. Auto-calculates interest, late fees, and flags "No PAN" entries for higher deduction under Section 206AA. Integrated with TRACES portal for bulk PAN verification, instantly identifying inoperative PANs.</p>
-        <div class="pimp"><div class="pilbl">⚡ Impact</div><div class="pitxt">Reduced 3–4 day manual TDS cycle to <strong>~1 working day</strong> across 8 entities. PAN verification for 50+ records: ~4 hours → <strong>15 minutes</strong>.</div></div>
-        <div class="ptech"><span class="tag">Tally ODBC</span><span class="tag">Advanced Excel</span><span class="tag">TRACES Portal</span><span class="tag">Section 206AA</span><span class="tag">VBA</span></div>
-      </div>
-    </div>
+        <div class="carousel" data-id={p.id} data-count={p.imageCount} data-prefix={p.imagePrefix}>
+          <div class="carousel-progress"></div>
+          <div class="carousel-track">
+            {Array.from({length: p.imageCount}, (_,i) => (
+              <div class="carousel-slide">
+                <img src={`${p.imagePrefix}${i+1}.png`} alt={`${p.title} — slide ${i+1}`} loading={i===0?'eager':'lazy'}/>
+              </div>
+            ))}
+          </div>
+          <div class="carousel-overlay"></div>
+          <div class="carousel-bar">
+            <button class="cbtn prev" aria-label="Previous">&#8249;</button>
+            <div class="cdots">
+              {Array.from({length: p.imageCount}, (_,i) => (
+                <button class={`cdot${i===0?' on':''}`} data-i={i} aria-label={`Slide ${i+1}`}></button>
+              ))}
+            </div>
+            <span class="ccounter">1 / {p.imageCount}</span>
+            <button class="cpause" aria-label="Pause autoplay">⏸</button>
+            <button class="cbtn next" aria-label="Next">&#8250;</button>
+          </div>
+        </div>
 
-    <div class="pcard rev">
-      <div class="pimg">
-        <!-- ADD IMAGE: place loan-guard-pro.png in /public/images/ then replace below with: <img src="/images/loan-guard-pro.png" alt="LoanGuard Pro"/> -->
-        <span class="pico">🛡️</span><span>loan-guard-pro.png</span>
-      </div>
-      <div class="pbody">
-        <div class="pnum">PROJECT 02</div>
-        <div class="ptitle">LoanGuard Pro — Automated Loan Tracking</div>
-        <p class="pdesc">Robust Excel-based corporate loan management tool powered by Power Query M scripts and VBA macros. Automatically generates EMI schedules for multiple loans, tracks real-time outstanding balances, and sends reminders. Handles multi-crore corporate loan amortisation across tenures from 1–8 years.</p>
-        <div class="pimp"><div class="pilbl">⚡ Impact</div><div class="pitxt">Achieved <strong>&gt;95% tracking accuracy</strong> over full loan lifecycles. Eliminated missed payments and gave management real-time visibility.</div></div>
-        <div class="ptech"><span class="tag">Power Query / M</span><span class="tag">VBA Macros</span><span class="tag">EMI Scheduling</span><span class="tag">Cash Flow</span></div>
-      </div>
-    </div>
+        <div class="pbody">
+          <div class="pnum">PROJECT {p.num}</div>
+          <div class="ptitle">{p.title}</div>
+          <p class="pdesc">{p.desc}</p>
+          <div class="pimp">
+            <div class="pilbl">⚡ Impact</div>
+            <div class="pitxt" set:html={p.impact}/>
+          </div>
+          <div class="ptech">{p.tech.map(t=><span class="tag">{t}</span>)}</div>
+        </div>
 
-    <div class="pcard">
-      <div class="pimg">
-        <!-- ADD IMAGE: place pan-verify.png in /public/images/ then replace below with: <img src="/images/pan-verify.png" alt="PAN Verification Tool"/> -->
-        <span class="pico">✅</span><span>pan-verify.png</span>
       </div>
-      <div class="pbody">
-        <div class="pnum">PROJECT 03</div>
-        <div class="ptitle">Bulk TRACES PAN Verification Tool</div>
-        <p class="pdesc">Excel-based tool integrating with the TRACES portal for bulk PAN validation at scale. Instantly flags "Inoperative" PANs where Aadhaar linking is pending — ensuring correct deduction rates per CBDT circular requirements and eliminating the manual one-by-one verification bottleneck.</p>
-        <div class="pimp"><div class="pilbl">⚡ Impact</div><div class="pitxt">Verification for <strong>50+ PAN records</strong> cut from ~4 hours to <strong>15 minutes</strong> during Q1–Q2 2025.</div></div>
-        <div class="ptech"><span class="tag">TRACES Portal</span><span class="tag">Excel Automation</span><span class="tag">CBDT Compliance</span><span class="tag">PAN Validation</span></div>
-      </div>
-    </div>
-
+    ))}
   </div>
 </section>
 
@@ -327,7 +389,6 @@
   <h2><em>Experience</em></h2>
   <p class="si">A decade-plus journey from billing executive to finance automation lead.</p>
   <div class="etl">
-
     <div class="eitem">
       <div class="edate">Jul 2025 – Present</div>
       <div class="etitle">Senior Accountant · Finance Automation Lead</div>
@@ -336,10 +397,9 @@
         <li>Managing end-to-end GST/TDS filings for 8 group entities, ensuring 100% statutory compliance.</li>
         <li>Built "Direct-from-Tally" TDS calculator via ODBC — cutting processing time by 70% (~24 man-hours/month saved).</li>
         <li>Developed LoanGuard Pro, automating multi-crore corporate loan amortisation and payment tracking.</li>
-        <li>Transitioned finance function from manual exports to automated dashboards, improving audit readiness.</li>
+        <li>Transitioned finance function from manual exports to automated Excel dashboards.</li>
       </ul>
     </div>
-
     <div class="eitem">
       <div class="edate">Oct 2022 – Jun 2025</div>
       <div class="etitle">Senior Accounts & GST Compliance Officer</div>
@@ -351,7 +411,6 @@
         <li>Led month-end and year-end closing including tax and compliance reporting.</li>
       </ul>
     </div>
-
     <div class="eitem">
       <div class="edate">Jun 2020 – Sep 2022</div>
       <div class="etitle">Senior Accountant</div>
@@ -362,7 +421,6 @@
         <li>Verified import purchase data and ensured accurate IGST entries using bills of entry.</li>
       </ul>
     </div>
-
     <div class="eitem">
       <div class="edate">May 2017 – Jun 2020</div>
       <div class="etitle">Accounts Executive</div>
@@ -373,7 +431,6 @@
         <li>Provided reconciled ledgers and bank statements to support statutory audits.</li>
       </ul>
     </div>
-
     <div class="eitem">
       <div class="edate">Jul 2013 – Dec 2016</div>
       <div class="etitle">Accounts Assistant / Billing Executive</div>
@@ -383,7 +440,6 @@
         <li>Maintained accurate input/output records to support tax and compliance documentation.</li>
       </ul>
     </div>
-
   </div>
 </section>
 
@@ -395,27 +451,10 @@
   <h2>Always <em>Learning</em></h2>
   <p class="si">Formal education backed by continuous professional development in automation and data skills.</p>
   <div class="edugrid">
-    <div class="educard">
-      <div class="eduyear">2012</div>
-      <div class="edudeg">Higher Secondary School Certificate (Commerce)</div>
-      <div class="edusch">Chhattisgarh Board of Secondary Education (CGBSE)</div>
-    </div>
-    <div class="educard">
-      <div class="eduyear">2014 – 2017</div>
-      <div class="edudeg">Bachelor of Commerce (B.Com)</div>
-      <div class="edusch">Indira Gandhi National Open University (IGNOU), Distance Learning</div>
-    </div>
-    <div class="educard">
-      <div class="eduyear">Completed 2023</div>
-      <div class="edudeg">Advanced Excel & VBA for Business</div>
-      <div class="edusch">Professional Certification · Applied in production tools</div>
-    </div>
-    <div class="educard hl">
-      <div class="eduyear">2026</div>
-      <div class="edudeg">Data Analysis with Excel & Power Query</div>
-      <div class="edusch">Professional Certification · In Progress</div>
-      <div class="edusta">In Progress</div>
-    </div>
+    <div class="educard"><div class="eduyear">2012</div><div class="edudeg">Higher Secondary School Certificate (Commerce)</div><div class="edusch">Chhattisgarh Board of Secondary Education (CGBSE)</div></div>
+    <div class="educard"><div class="eduyear">2014 – 2017</div><div class="edudeg">Bachelor of Commerce (B.Com)</div><div class="edusch">Indira Gandhi National Open University (IGNOU), Distance Learning</div></div>
+    <div class="educard"><div class="eduyear">Completed 2023</div><div class="edudeg">Advanced Excel & VBA for Business</div><div class="edusch">Professional Certification · Applied in production tools</div></div>
+    <div class="educard hl"><div class="eduyear">2026</div><div class="edudeg">Data Analysis with Excel & Power Query</div><div class="edusch">Professional Certification · In Progress</div><div class="edusta">In Progress</div></div>
   </div>
 </section>
 
@@ -446,14 +485,115 @@
 </footer>
 
 <script>
-  // Mobile nav
+  // ── Mobile nav ──────────────────────────────────────────
   const burger = document.getElementById('burger');
   const nl = document.getElementById('nl');
   burger?.addEventListener('click', () => nl?.classList.toggle('open'));
   document.querySelectorAll('#nl a').forEach(a => a.addEventListener('click', () => nl?.classList.remove('open')));
 
-  // Scroll reveal
-  const obs = new IntersectionObserver((entries) => {
+  // ── Carousels ───────────────────────────────────────────
+  const INTERVAL = 3500; // ms between auto-slides
+
+  document.querySelectorAll<HTMLElement>('.carousel').forEach(el => {
+    const count  = parseInt(el.dataset.count || '1');
+    if (count < 1) return;
+
+    const track    = el.querySelector<HTMLElement>('.carousel-track')!;
+    const progress = el.querySelector<HTMLElement>('.carousel-progress')!;
+    const counter  = el.querySelector<HTMLElement>('.ccounter')!;
+    const prevBtn  = el.querySelector<HTMLButtonElement>('.cbtn.prev')!;
+    const nextBtn  = el.querySelector<HTMLButtonElement>('.cbtn.next')!;
+    const pauseBtn = el.querySelector<HTMLButtonElement>('.cpause')!;
+    const dots     = el.querySelectorAll<HTMLButtonElement>('.cdot');
+
+    let current  = 0;
+    let paused   = false;
+    let timer: ReturnType<typeof setTimeout>;
+    let progTimer: ReturnType<typeof requestAnimationFrame>;
+
+    // ── go to slide ───────────────────────────────────────
+    function goTo(idx: number, animate = true) {
+      current = ((idx % count) + count) % count;
+      if (animate) {
+        track.classList.add('animating');
+        track.addEventListener('transitionend', () => track.classList.remove('animating'), {once:true});
+      }
+      track.style.transform = `translateX(-${current * 100}%)`;
+      counter.textContent   = `${current + 1} / ${count}`;
+      dots.forEach((d,i)  => d.classList.toggle('on', i === current));
+      prevBtn.disabled      = false;
+      nextBtn.disabled      = false;
+    }
+
+    // ── progress bar ──────────────────────────────────────
+    function startProgress() {
+      cancelAnimationFrame(progTimer);
+      progress.style.transition = 'none';
+      progress.style.width      = '0%';
+      // force reflow
+      progress.getBoundingClientRect();
+      progress.style.transition = `width ${INTERVAL}ms linear`;
+      progress.style.width      = '100%';
+    }
+
+    // ── auto-play ─────────────────────────────────────────
+    function scheduleNext() {
+      clearTimeout(timer);
+      if (!paused && count > 1) {
+        startProgress();
+        timer = setTimeout(() => { goTo(current + 1); scheduleNext(); }, INTERVAL);
+      } else {
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+      }
+    }
+
+    function resetTimer() { clearTimeout(timer); scheduleNext(); }
+
+    // ── controls ──────────────────────────────────────────
+    prevBtn.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+    nextBtn.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+    dots.forEach((d,i) => d.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+    pauseBtn.addEventListener('click', () => {
+      paused = !paused;
+      pauseBtn.textContent = paused ? '▶' : '⏸';
+      pauseBtn.title = paused ? 'Resume autoplay' : 'Pause autoplay';
+      if (paused) {
+        clearTimeout(timer);
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+      } else {
+        scheduleNext();
+      }
+    });
+
+    // ── pause on hover ────────────────────────────────────
+    el.addEventListener('mouseenter', () => { clearTimeout(timer); progress.style.transition='none'; progress.style.width='0%'; });
+    el.addEventListener('mouseleave', () => { if (!paused) scheduleNext(); });
+
+    // ── touch / swipe ─────────────────────────────────────
+    let tx = 0;
+    el.addEventListener('touchstart', (e: TouchEvent) => { tx = e.touches[0].clientX; }, {passive:true});
+    el.addEventListener('touchend',   (e: TouchEvent) => {
+      const diff = tx - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 45) { goTo(diff > 0 ? current+1 : current-1); resetTimer(); }
+    }, {passive:true});
+
+    // ── keyboard (when focused) ───────────────────────────
+    el.setAttribute('tabindex','0');
+    el.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') { goTo(current+1); resetTimer(); }
+      if (e.key === 'ArrowLeft')  { goTo(current-1); resetTimer(); }
+    });
+
+    // ── init ──────────────────────────────────────────────
+    goTo(0, false);
+    scheduleNext();
+  });
+
+  // ── Scroll reveal ────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         (e.target as HTMLElement).style.opacity = '1';
@@ -461,7 +601,8 @@
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, {threshold: 0.08});
+
   document.querySelectorAll<HTMLElement>('.scard,.pcard,.eitem,.educard,.icard,.clink').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(28px)';
@@ -469,6 +610,5 @@
     obs.observe(el);
   });
 </script>
-
 </body>
 </html>
