@@ -1,13 +1,10 @@
 ---
-// ─── UPDATE IMAGE COUNTS HERE ─────────────────────────────
-// After uploading images to public/images/tds/, loan/, pan/
-// just change the numbers below and redeploy.
 const projects = [
   {
     id: "tds",
     num: "01",
     title: "Direct-from-Tally TDS Compliance Engine",
-    imageCount: 7,          // tds-1.png … tds-7.png
+    imageCount: 7,
     imagePrefix: "/images/tds/tds-",
     desc: `Built a full-cycle TDS management system connecting Excel directly to Tally Prime
 via ODBC — eliminating all manual ledger exports. Auto-calculates interest, late fees,
@@ -22,7 +19,7 @@ PAN verification for 50+ records: ~4 hours → <strong>15 minutes</strong>.`,
     id: "loan",
     num: "02",
     title: "LoanGuard Pro — Automated Loan Tracking",
-    imageCount: 5,          // loan-1.png … loan-7.png
+    imageCount: 5,
     imagePrefix: "/images/loan/loan-",
     desc: `Robust Excel-based corporate loan management tool powered by Power Query M scripts
 and VBA macros. Automatically generates EMI schedules, tracks real-time outstanding
@@ -36,7 +33,7 @@ Eliminated missed payments and gave management real-time visibility.`,
     id: "pan",
     num: "03",
     title: "Bulk TRACES PAN Verification Tool",
-    imageCount: 1,          // pan-1.png … pan-7.png
+    imageCount: 1,
     imagePrefix: "/images/pan/pan-",
     desc: `Excel-based tool integrating with the TRACES portal for bulk PAN validation at scale.
 Instantly flags "Inoperative" PANs where Aadhaar linking is pending — ensuring correct
@@ -118,11 +115,18 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .snum{font-family:var(--serif);font-size:2.8rem;color:var(--gold);line-height:1}
     .slbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-top:.25rem}
 
-    /* ABOUT */
+    /* ABOUT — with profile photo */
     .about{background:var(--navy2)}
     .agrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
     .atext p{margin-bottom:1.2rem;font-size:1.05rem;color:var(--slatelt);line-height:1.9}
     .atext strong{color:var(--goldlt)}
+
+    /* Profile photo */
+    .profile-wrap{display:flex;align-items:flex-start;gap:2rem;margin-bottom:2rem}
+    .profile-photo{width:120px;height:120px;border-radius:50%;border:3px solid var(--gold);object-fit:cover;flex-shrink:0;box-shadow:0 0 0 6px rgba(201,168,76,.12),0 8px 32px rgba(0,0,0,.4)}
+    .profile-intro{flex:1}
+    .profile-intro h2{margin-bottom:.5rem}
+
     .acards{display:flex;flex-direction:column;gap:1rem}
     .icard{border:1px solid var(--border);background:var(--navy3);padding:1.25rem 1.75rem;border-radius:4px;position:relative;overflow:hidden}
     .icard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
@@ -140,30 +144,27 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .stitle{font-family:var(--serif);font-size:1.15rem;color:var(--white);margin-bottom:1rem}
     .stags{display:flex;flex-wrap:wrap;gap:.5rem}
 
-    /* PROJECTS */
+    /* PROJECTS — balanced layout */
     .projects{background:var(--navy2)}
     .plist{display:flex;flex-direction:column;gap:3rem}
-    .pcard{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);background:var(--navy3);border-radius:6px;overflow:hidden;transition:border-color .3s}
+    .pcard{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;border:1px solid var(--border);background:var(--navy3);border-radius:6px;overflow:hidden;transition:border-color .3s}
     .pcard:hover{border-color:var(--borders)}
     .pcard.rev{direction:rtl}
     .pcard.rev>*{direction:ltr}
 
-    /* CAROUSEL */
-    .carousel{position:relative;min-height:380px;background:var(--navy4);overflow:hidden;border-right:1px solid var(--border);user-select:none}
+    /* CAROUSEL — landscape */
+    .carousel{position:relative;aspect-ratio:16/9;background:var(--navy);overflow:hidden;border-right:1px solid var(--border);user-select:none}
     .pcard.rev .carousel{border-right:none;border-left:1px solid var(--border)}
 
-    /* progress bar */
     .carousel-progress{position:absolute;top:0;left:0;height:3px;background:var(--gold);width:0%;z-index:10;transition:width linear}
 
     .carousel-track{display:flex;height:100%;will-change:transform}
     .carousel-track.animating{transition:transform .5s cubic-bezier(.4,0,.2,1)}
-    .carousel-slide{min-width:100%;height:100%;min-height:380px;position:relative;flex-shrink:0}
-    .carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .carousel-slide{min-width:100%;height:100%;position:relative;flex-shrink:0}
+    .carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--navy);display:block}
 
-    /* overlay gradient */
     .carousel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,15,26,.7) 0%,transparent 40%);pointer-events:none;z-index:2}
 
-    /* controls bar */
     .carousel-bar{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;z-index:3}
     .cbtn{background:rgba(11,15,26,.6);border:1px solid rgba(201,168,76,.35);color:var(--gold);width:34px;height:34px;border-radius:3px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;line-height:1}
     .cbtn:hover{background:rgba(201,168,76,.25);border-color:var(--gold)}
@@ -173,17 +174,16 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .cdot.on{background:var(--gold);transform:scale(1.35)}
     .ccounter{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:rgba(255,255,255,.7);flex-shrink:0}
 
-    /* auto-play pause icon */
     .cpause{background:rgba(11,15,26,.6);border:1px solid rgba(201,168,76,.2);color:rgba(255,255,255,.5);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.65rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;padding:0}
     .cpause:hover{border-color:var(--gold);color:var(--gold)}
 
-    .pbody{padding:3rem}
+    .pbody{padding:2.5rem}
     .pnum{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--gold);margin-bottom:.75rem}
-    .ptitle{font-family:var(--serif);font-size:1.65rem;color:var(--white);margin-bottom:1rem;line-height:1.2}
-    .pdesc{font-size:.95rem;color:var(--slatelt);line-height:1.85;margin-bottom:1.5rem}
-    .pimp{background:var(--navy4);border-left:3px solid var(--green);padding:1rem 1.25rem;border-radius:0 4px 4px 0;margin-bottom:1.5rem}
+    .ptitle{font-family:var(--serif);font-size:1.5rem;color:var(--white);margin-bottom:1rem;line-height:1.2}
+    .pdesc{font-size:.92rem;color:var(--slatelt);line-height:1.85;margin-bottom:1.25rem}
+    .pimp{background:var(--navy4);border-left:3px solid var(--green);padding:.9rem 1.15rem;border-radius:0 4px 4px 0;margin-bottom:1.25rem}
     .pilbl{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
-    .pitxt{font-size:.9rem;color:var(--slatelt)}
+    .pitxt{font-size:.88rem;color:var(--slatelt)}
     .pitxt strong{color:var(--green)}
     .ptech{display:flex;flex-wrap:wrap;gap:.5rem}
 
@@ -249,9 +249,11 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       .agrid,.cgrid{grid-template-columns:1fr;gap:3rem}
       .sgrid{grid-template-columns:1fr 1fr}
       .pcard,.pcard.rev{grid-template-columns:1fr;direction:ltr}
-      .carousel{min-height:240px;border:none!important}
-      .carousel-slide{min-height:240px}
+      .carousel{aspect-ratio:16/9;border:none!important}
+      .carousel-slide{min-height:unset}
       .edugrid{grid-template-columns:1fr}
+      .profile-wrap{flex-direction:column;align-items:center;text-align:center}
+      .profile-photo{width:100px;height:100px}
       footer{padding:1.5rem;justify-content:center;text-align:center}
     }
     @media(max-width:600px){.sgrid{grid-template-columns:1fr}.pbody{padding:1.75rem}}
@@ -294,12 +296,26 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
 
 <div class="divider"></div>
 
-<!-- ABOUT -->
+<!-- ABOUT — with profile photo -->
 <section class="about" id="about">
   <div class="sl">About me</div>
   <div class="agrid">
     <div class="atext">
-      <h2>Where <em>Finance</em> Meets Automation</h2>
+      <!-- ══ PROFILE PHOTO + HEADING ══ -->
+      <div class="profile-wrap">
+        <img
+          src="/images/profile.jpg"
+          alt="Anadi Shankar Yagnik"
+          class="profile-photo"
+          width="120"
+          height="120"
+        />
+        <div class="profile-intro">
+          <h2>Where <em>Finance</em> Meets Automation</h2>
+        </div>
+      </div>
+      <!-- ══ END PROFILE ══ -->
+
       <p>Over 12+ years working across manufacturing, energy, logistics, and trading, I've evolved from a traditional accountant into a <strong>techno-functional finance specialist</strong> — operating at the intersection of complex multi-entity tax compliance and data automation.</p>
       <p>While most finance teams rely on manual data entry, I engineer <strong>automated solutions</strong> using Advanced Excel, VBA macros, Power Query, and Tally ODBC connections — pulling real-time data directly from the ERP.</p>
       <p>Currently at <strong>RBP Energy (India) Pvt. Ltd.</strong>, managing end-to-end GST/TDS compliance for 8 group entities, backed entirely by custom automation tools I built from scratch.</p>
@@ -341,7 +357,6 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
   <div class="plist">
     {projects.map(p => (
       <div class={`pcard${p.reverse?' rev':''}`}>
-
         <div class="carousel" data-id={p.id} data-count={p.imageCount} data-prefix={p.imagePrefix}>
           <div class="carousel-progress"></div>
           <div class="carousel-track">
@@ -364,7 +379,6 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
             <button class="cbtn next" aria-label="Next">&#8250;</button>
           </div>
         </div>
-
         <div class="pbody">
           <div class="pnum">PROJECT {p.num}</div>
           <div class="ptitle">{p.title}</div>
@@ -375,7 +389,6 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
           </div>
           <div class="ptech">{p.tech.map(t=><span class="tag">{t}</span>)}</div>
         </div>
-
       </div>
     ))}
   </div>
@@ -477,7 +490,6 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="fname">Anadi Shankar Yagnik</div>
   <div class="fnote">Senior Accountant · Finance Automation Specialist · Raipur, India</div>
@@ -485,14 +497,12 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
 </footer>
 
 <script>
-  // ── Mobile nav ──────────────────────────────────────────
   const burger = document.getElementById('burger');
   const nl = document.getElementById('nl');
   burger?.addEventListener('click', () => nl?.classList.toggle('open'));
   document.querySelectorAll('#nl a').forEach(a => a.addEventListener('click', () => nl?.classList.remove('open')));
 
-  // ── Carousels ───────────────────────────────────────────
-  const INTERVAL = 3500; // ms between auto-slides
+  const INTERVAL = 3500;
 
   document.querySelectorAll<HTMLElement>('.carousel').forEach(el => {
     const count  = parseInt(el.dataset.count || '1');
@@ -511,7 +521,6 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     let timer: ReturnType<typeof setTimeout>;
     let progTimer: ReturnType<typeof requestAnimationFrame>;
 
-    // ── go to slide ───────────────────────────────────────
     function goTo(idx: number, animate = true) {
       current = ((idx % count) + count) % count;
       if (animate) {
@@ -525,18 +534,15 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       nextBtn.disabled      = false;
     }
 
-    // ── progress bar ──────────────────────────────────────
     function startProgress() {
       cancelAnimationFrame(progTimer);
       progress.style.transition = 'none';
       progress.style.width      = '0%';
-      // force reflow
       progress.getBoundingClientRect();
       progress.style.transition = `width ${INTERVAL}ms linear`;
       progress.style.width      = '100%';
     }
 
-    // ── auto-play ─────────────────────────────────────────
     function scheduleNext() {
       clearTimeout(timer);
       if (!paused && count > 1) {
@@ -550,7 +556,6 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
 
     function resetTimer() { clearTimeout(timer); scheduleNext(); }
 
-    // ── controls ──────────────────────────────────────────
     prevBtn.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
     nextBtn.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
     dots.forEach((d,i) => d.addEventListener('click', () => { goTo(i); resetTimer(); }));
@@ -568,11 +573,9 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       }
     });
 
-    // ── pause on hover ────────────────────────────────────
     el.addEventListener('mouseenter', () => { clearTimeout(timer); progress.style.transition='none'; progress.style.width='0%'; });
     el.addEventListener('mouseleave', () => { if (!paused) scheduleNext(); });
 
-    // ── touch / swipe ─────────────────────────────────────
     let tx = 0;
     el.addEventListener('touchstart', (e: TouchEvent) => { tx = e.touches[0].clientX; }, {passive:true});
     el.addEventListener('touchend',   (e: TouchEvent) => {
@@ -580,19 +583,16 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       if (Math.abs(diff) > 45) { goTo(diff > 0 ? current+1 : current-1); resetTimer(); }
     }, {passive:true});
 
-    // ── keyboard (when focused) ───────────────────────────
     el.setAttribute('tabindex','0');
     el.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') { goTo(current+1); resetTimer(); }
       if (e.key === 'ArrowLeft')  { goTo(current-1); resetTimer(); }
     });
 
-    // ── init ──────────────────────────────────────────────
     goTo(0, false);
     scheduleNext();
   });
 
-  // ── Scroll reveal ────────────────────────────────────────
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
