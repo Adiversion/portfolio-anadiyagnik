@@ -1,0 +1,159 @@
+/* ─── TOKENS ────────────────────────────────────────────── */
+:root {
+  --navy:      #0b0f1a;
+  --navy-2:    #111827;
+  --navy-3:    #1a2235;
+  --navy-4:    #243049;
+  --gold:      #c9a84c;
+  --gold-lt:   #e3c97a;
+  --gold-dim:  #7a5f28;
+  --slate:     #8a97b0;
+  --slate-lt:  #bec8d9;
+  --white:     #f0f4ff;
+  --green:     #3ecf8e;
+  --border:    rgba(201,168,76,0.18);
+  --border-s:  rgba(201,168,76,0.35);
+  --font-serif: 'DM Serif Display', serif;
+  --font-mono:  'DM Mono', monospace;
+  --font-sans:  'Instrument Sans', sans-serif;
+}
+
+/* ─── RESET ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--slate-lt);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-lt); }
+
+/* ─── NOISE OVERLAY ─────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── SCROLLBAR ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+/* ─── SECTION BASE ──────────────────────────────────────── */
+section { padding: 7rem 4rem; }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+h2 em { font-style: italic; color: var(--gold); }
+
+.section-intro {
+  font-size: 1.05rem;
+  color: var(--slate);
+  max-width: 580px;
+  line-height: 1.8;
+  margin-bottom: 4rem;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-s), transparent);
+  margin: 0 4rem;
+}
+
+/* ─── BUTTONS ───────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.8rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--gold-lt); color: var(--navy); transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border-s);
+  color: var(--slate-lt);
+  padding: 0.8rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+/* ─── TAG CHIPS ─────────────────────────────────────────── */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  background: var(--navy-4);
+  color: var(--slate);
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  section { padding: 5rem 2rem; }
+  .divider { margin: 0 2rem; }
+}
+@media (max-width: 600px) {
+  section { padding: 4rem 1.25rem; }
+}
