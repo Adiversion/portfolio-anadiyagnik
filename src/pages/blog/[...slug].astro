@@ -1,4 +1,6 @@
 ---
-export const prerender = false;
-return Astro.redirect('/');
+export function getStaticPaths() {
+  return [];
+}
 ---
+<html><head><meta http-equiv="refresh" content="0;url=/" /></head></html>
