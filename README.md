@@ -4,7 +4,7 @@
 
 A dark-themed, single-page portfolio showcasing 12+ years of finance automation expertise — GST/TDS compliance, Excel VBA, Power Query, and Tally ODBC integrations.
 
-🔗 **Live:** [portfolio-2xt.pages.dev](https://portfolio-2xt.pages.dev)
+🔗 **Live:** [portfolio-anadiyagnik.pages.dev](https://portfolio-anadiyagnik.pages.dev)
 
 ---
 
