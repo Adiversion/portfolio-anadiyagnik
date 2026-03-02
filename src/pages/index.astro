@@ -1,4 +1,5 @@
 ---
+const currentYear = new Date().getFullYear();
 const projects = [
   {
     id: "tds",
@@ -52,25 +53,81 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Senior Accountant & Finance Automation Lead. GST/TDS compliance automated with Excel, VBA, Power Query and Tally ODBC."/>
   <title>Anadi Shankar Yagnik — Finance Automation Specialist</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://portfolio-2xt.pages.dev/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Anadi Shankar Yagnik — Finance Automation Specialist" />
+  <meta property="og:description" content="Senior Accountant & Finance Automation Lead. GST/TDS compliance automated with Excel, VBA, Power Query and Tally ODBC." />
+  <meta property="og:image" content="https://portfolio-2xt.pages.dev/images/og-cover.jpg" />
+  <meta property="og:url" content="https://portfolio-2xt.pages.dev/" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anadi Shankar Yagnik — Finance Automation Specialist" />
+  <meta name="twitter:description" content="Senior Accountant & Finance Automation Lead. GST/TDS compliance automated with Excel, VBA, Power Query and Tally ODBC." />
+  <meta name="twitter:image" content="https://portfolio-2xt.pages.dev/images/og-cover.jpg" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anadi Shankar Yagnik",
+    "jobTitle": "Senior Accountant & Finance Automation Lead",
+    "url": "https://portfolio-2xt.pages.dev",
+    "email": "anadisyagnik@gmail.com",
+    "telephone": "+918966853253",
+    "image": "https://portfolio-2xt.pages.dev/images/profile.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Raipur",
+      "addressRegion": "Chhattisgarh",
+      "addressCountry": "IN"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "RBP Energy (India) Pvt. Ltd."
+    },
+    "knowsAbout": ["GST Compliance","TDS Management","Excel VBA","Tally ODBC","Power Query","Finance Automation"],
+    "sameAs": ["https://linkedin.com/in/anadi-yagnik"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root{
-      --navy:#0b0f1a;--navy2:#111827;--navy3:#1a2235;--navy4:#243049;
-      --gold:#c9a84c;--goldlt:#e3c97a;--golddim:#7a5f28;
-      --slate:#8a97b0;--slatelt:#bec8d9;--white:#f0f4ff;--green:#3ecf8e;
+      --navy:#090d17;--navy2:#131b2d;--navy3:#1a2235;--navy4:#243049;
+      --gold:#d4a853;--goldlt:#e8c66f;--golddim:#8a6830;
+      --slate:#94a3bb;--slatelt:#bec8d9;--white:#f0f4ff;--green:#3ecf8e;
       --border:rgba(201,168,76,.18);--borders:rgba(201,168,76,.35);
       --serif:'DM Serif Display',serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+    :focus:not(:focus-visible){outline:none}
     html{scroll-behavior:smooth}
     body{background:var(--navy);color:var(--slatelt);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
     a{color:var(--gold);text-decoration:none}
     a:hover{color:var(--goldlt)}
+    html{scrollbar-width:thin;scrollbar-color:var(--golddim) var(--navy)}
     ::-webkit-scrollbar{width:6px}
     ::-webkit-scrollbar-track{background:var(--navy)}
     ::-webkit-scrollbar-thumb{background:var(--golddim);border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+    ::selection{background:rgba(212,168,83,.3);color:var(--white)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 
@@ -91,7 +148,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     h2 em{font-style:italic;color:var(--gold)}
     .si{font-size:1.05rem;color:var(--slate);max-width:580px;line-height:1.8;margin-bottom:4rem}
     .divider{height:1px;background:linear-gradient(90deg,transparent,var(--borders),transparent);margin:0 4rem}
-    .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;background:var(--navy4);color:var(--slate);padding:.3rem .7rem;border-radius:2px;border:1px solid var(--border)}
+    .tag{font-family:var(--mono);font-size:0.72rem;letter-spacing:.08em;background:var(--navy4);color:var(--slatelt);padding:.3rem .7rem;border-radius:2px;border:1px solid rgba(201,168,76,.22)}
     .btnp{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--navy);padding:.8rem 2rem;font-family:var(--mono);font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:all .2s}
     .btnp:hover{background:var(--goldlt);color:var(--navy);transform:translateY(-2px)}
     .btng{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--borders);color:var(--slatelt);padding:.8rem 2rem;font-family:var(--mono);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;transition:all .2s}
@@ -116,6 +173,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .slbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-top:.25rem}
 
     /* ABOUT — with profile photo */
+    .about,.projects,.education{border-top:1px solid rgba(201,168,76,.06)}
     .about{background:var(--navy2)}
     .agrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
     .atext p{margin-bottom:1.2rem;font-size:1.05rem;color:var(--slatelt);line-height:1.9}
@@ -128,7 +186,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .profile-intro h2{margin-bottom:.5rem}
 
     .acards{display:flex;flex-direction:column;gap:1rem}
-    .icard{border:1px solid var(--border);background:var(--navy3);padding:1.25rem 1.75rem;border-radius:4px;position:relative;overflow:hidden}
+    .icard{border:1px solid var(--border);background:var(--navy3);padding:1.25rem 1.75rem;border-radius:4px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s}
     .icard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
     .iclbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
     .icval{font-size:.95rem;color:var(--white);font-weight:500;line-height:1.5}
@@ -138,7 +196,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
     .scard{border:1px solid var(--border);background:var(--navy3);padding:2rem;border-radius:4px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
     .scard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-    .scard:hover{border-color:var(--borders);transform:translateY(-4px)}
+    .scard:hover{border-color:var(--borders);transform:translateY(-4px);box-shadow:0 8px 32px rgba(201,168,76,.08),0 0 0 1px rgba(201,168,76,.1)}
     .scard:hover::after{transform:scaleX(1)}
     .sico{font-size:1.5rem;margin-bottom:1rem}
     .stitle{font-family:var(--serif);font-size:1.15rem;color:var(--white);margin-bottom:1rem}
@@ -148,7 +206,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .projects{background:var(--navy2)}
     .plist{display:flex;flex-direction:column;gap:3rem}
     .pcard{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;border:1px solid var(--border);background:var(--navy3);border-radius:6px;overflow:hidden;transition:border-color .3s}
-    .pcard:hover{border-color:var(--borders)}
+    .pcard:hover{border-color:var(--borders);box-shadow:0 12px 48px rgba(201,168,76,.07)}
     .pcard.rev{direction:rtl}
     .pcard.rev>*{direction:ltr}
 
@@ -158,8 +216,8 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
 
     .carousel-progress{position:absolute;top:0;left:0;height:3px;background:var(--gold);width:0%;z-index:10;transition:width linear}
 
-    .carousel-track{display:flex;height:100%;will-change:transform}
-    .carousel-track.animating{transition:transform .5s cubic-bezier(.4,0,.2,1)}
+    .carousel-track{display:flex;height:100%}
+    .carousel-track.animating{will-change:transform;transition:transform .5s cubic-bezier(.4,0,.2,1)}
     .carousel-slide{min-width:100%;height:100%;position:relative;flex-shrink:0}
     .carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--navy);display:block}
 
@@ -182,7 +240,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .ptitle{font-family:var(--serif);font-size:1.5rem;color:var(--white);margin-bottom:1rem;line-height:1.2}
     .pdesc{font-size:.92rem;color:var(--slatelt);line-height:1.85;margin-bottom:1.25rem}
     .pimp{background:var(--navy4);border-left:3px solid var(--green);padding:.9rem 1.15rem;border-radius:0 4px 4px 0;margin-bottom:1.25rem}
-    .pilbl{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
+    .pilbl{font-family:var(--mono);font-size:0.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
     .pitxt{font-size:.88rem;color:var(--slatelt)}
     .pitxt strong{color:var(--green)}
     .ptech{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -206,7 +264,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .edugrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
     .educard{border:1px solid var(--border);background:var(--navy3);padding:2.5rem;border-radius:4px;transition:border-color .3s;position:relative;overflow:hidden}
     .educard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
-    .educard:hover{border-color:var(--borders)}
+    .educard:hover{border-color:var(--borders);box-shadow:0 8px 32px rgba(201,168,76,.07)}
     .educard.hl{border-color:rgba(62,207,142,.3)}
     .educard.hl::before{background:linear-gradient(90deg,var(--green),transparent)}
     .educard.hl .eduyear{color:var(--green)}
@@ -249,7 +307,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       .agrid,.cgrid{grid-template-columns:1fr;gap:3rem}
       .sgrid{grid-template-columns:1fr 1fr}
       .pcard,.pcard.rev{grid-template-columns:1fr;direction:ltr}
-      .carousel{aspect-ratio:16/9;border:none!important}
+      .pcard .carousel,.pcard.rev .carousel{border-right:none;border-left:none}
       .carousel-slide{min-height:unset}
       .edugrid{grid-template-columns:1fr}
       .profile-wrap{flex-direction:column;align-items:center;text-align:center}
@@ -257,6 +315,10 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       footer{padding:1.5rem;justify-content:center;text-align:center}
     }
     @media(max-width:600px){.sgrid{grid-template-columns:1fr}.pbody{padding:1.75rem}}
+    /* SKIP LINK */
+    .skip-link{position:fixed;top:-100%;left:1rem;z-index:10001;background:var(--gold);color:var(--navy);padding:.75rem 1.5rem;font-family:var(--mono);font-size:.82rem;font-weight:600;border-radius:0 0 4px 4px;transition:top .2s}
+    .skip-link:focus{top:0}
+
     /* LIGHTBOX */
     .carousel-slide img{cursor:zoom-in}
     #lightbox{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(5,8,15,.96);backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .3s ease}
@@ -275,9 +337,23 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     .lb-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;padding:0;transition:all .25s}
     .lb-dot.on{background:var(--gold);transform:scale(1.35)}
     @media(max-width:600px){.lb-prev{left:.25rem}.lb-next{right:.25rem}.lb-prev,.lb-next{width:42px;height:42px;font-size:1.6rem}}
+
+    /* PRINT */
+    @media print{
+      body{background:#fff;color:#111;font-size:11pt}
+      nav,.burger,.hgrid,.hglow,.hglow2,.hbadge,.hcta,.carousel-bar,.carousel-overlay,.carousel-progress,.divider,#lightbox,.avail,.cpause{display:none!important}
+      section{padding:1.5rem 0;break-inside:avoid}
+      h1,h2,.ptitle,.etitle,.stitle,.edudeg{color:#111}
+      .hero{min-height:auto;padding:2rem 0}
+      a{color:#111;text-decoration:underline}
+      .tag{border-color:#ccc;color:#333;background:#f5f5f5}
+      .pcard,.scard,.icard,.educard{border-color:#ddd;background:#fafafa}
+      footer{border-top:1px solid #ddd}
+    }
   </style>
 </head>
 <body>
+<a href="#home" class="skip-link">Skip to content</a>
 
 <!-- NAV -->
 <nav>
@@ -287,7 +363,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     <a href="#projects">Projects</a><a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
-  <button class="burger" id="burger" aria-label="Menu">
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nl">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -342,7 +418,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       <div class="icard"><div class="iclbl">📍 Location</div><div class="icval">Raipur, Chhattisgarh, India</div></div>
       <div class="icard"><div class="iclbl">💼 Current Role</div><div class="icval">Senior Accountant · Finance Automation Lead<br/>RBP Energy (India) Pvt. Ltd.</div></div>
       <div class="icard"><div class="iclbl">📬 Email</div><div class="icval"><a href="mailto:anadisyagnik@gmail.com">anadisyagnik@gmail.com</a></div></div>
-      <div class="icard"><div class="iclbl">🔗 LinkedIn</div><div class="icval"><a href="https://linkedin.com/in/anadi-yagnik" target="_blank">linkedin.com/in/anadi-yagnik</a></div></div>
+      <div class="icard"><div class="iclbl">🔗 LinkedIn</div><div class="icval"><a href="https://linkedin.com/in/anadi-yagnik" target="_blank" rel="noopener noreferrer">linkedin.com/in/anadi-yagnik</a></div></div>
       <div class="icard"><div class="iclbl">🌐 Languages</div><div class="icval">Hindi · English · Odia</div></div>
     </div>
   </div>
@@ -375,17 +451,17 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
   <div class="plist">
     {projects.map(p => (
       <div class={`pcard${p.reverse?' rev':''}`}>
-        <div class="carousel" data-id={p.id} data-count={p.imageCount} data-prefix={p.imagePrefix}>
-          <div class="carousel-progress"></div>
+        <div class="carousel" data-id={p.id} data-count={p.imageCount} data-prefix={p.imagePrefix} role="region" aria-roledescription="carousel" aria-label={`${p.title} screenshots`} tabindex="0">
+          {p.imageCount > 1 && <div class="carousel-progress"></div>}
           <div class="carousel-track">
             {Array.from({length: p.imageCount}, (_,i) => (
               <div class="carousel-slide">
-                <img src={`${p.imagePrefix}${i+1}.png`} alt={`${p.title} — slide ${i+1}`} loading={i===0?'eager':'lazy'}/>
+                <img src={`${p.imagePrefix}${i+1}.png`} alt={`${p.title} — slide ${i+1}`} loading={p.num === "01" && i===0 ? 'eager' : 'lazy'}/>
               </div>
             ))}
           </div>
           <div class="carousel-overlay"></div>
-          <div class="carousel-bar">
+          {p.imageCount > 1 && <div class="carousel-bar">
             <button class="cbtn prev" aria-label="Previous">&#8249;</button>
             <div class="cdots">
               {Array.from({length: p.imageCount}, (_,i) => (
@@ -395,7 +471,7 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
             <span class="ccounter">1 / {p.imageCount}</span>
             <button class="cpause" aria-label="Pause autoplay">⏸</button>
             <button class="cbtn next" aria-label="Next">&#8250;</button>
-          </div>
+          </div>}
         </div>
         <div class="pbody">
           <div class="pnum">PROJECT {p.num}</div>
@@ -511,12 +587,12 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
 <footer>
   <div class="fname">Anadi Shankar Yagnik</div>
   <div class="fnote">Senior Accountant · Finance Automation Specialist · Raipur, India</div>
-  <div class="fnote">© 2026 All rights reserved</div>
+  <div class="fnote">© {currentYear} All rights reserved</div>
 </footer>
 
 
 <!-- LIGHTBOX -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" inert>
   <button class="lb-close" aria-label="Close">&#x2715;</button>
   <button class="lb-prev" aria-label="Previous">&#8249;</button>
   <img src="" alt="Project screenshot"/>
@@ -530,7 +606,10 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
 <script>
   const burger = document.getElementById('burger');
   const nl = document.getElementById('nl');
-  burger?.addEventListener('click', () => nl?.classList.toggle('open'));
+  burger?.addEventListener('click', () => {
+    const isOpen = nl?.classList.toggle('open');
+    burger?.setAttribute('aria-expanded', String(!!isOpen));
+  });
   document.querySelectorAll('#nl a').forEach(a => a.addEventListener('click', () => nl?.classList.remove('open')));
 
   const INTERVAL = 3500;
@@ -539,12 +618,13 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
     const count  = parseInt(el.dataset.count || '1');
     if (count < 1) return;
 
-    const track    = el.querySelector<HTMLElement>('.carousel-track')!;
-    const progress = el.querySelector<HTMLElement>('.carousel-progress')!;
-    const counter  = el.querySelector<HTMLElement>('.ccounter')!;
-    const prevBtn  = el.querySelector<HTMLButtonElement>('.cbtn.prev')!;
-    const nextBtn  = el.querySelector<HTMLButtonElement>('.cbtn.next')!;
-    const pauseBtn = el.querySelector<HTMLButtonElement>('.cpause')!;
+    const track    = el.querySelector<HTMLElement>('.carousel-track');
+    const progress = el.querySelector<HTMLElement>('.carousel-progress');
+    const counter  = el.querySelector<HTMLElement>('.ccounter');
+    const prevBtn  = el.querySelector<HTMLButtonElement>('.cbtn.prev');
+    const nextBtn  = el.querySelector<HTMLButtonElement>('.cbtn.next');
+    const pauseBtn = el.querySelector<HTMLButtonElement>('.cpause');
+    if (!track) return;
     const dots     = el.querySelectorAll<HTMLButtonElement>('.cdot');
 
     let current  = 0;
@@ -627,32 +707,35 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
 
   // ── LIGHTBOX ────────────────────────────────────────────
   (function(){
-    const lb        = document.getElementById('lightbox');
-    const lbImg     = lb.querySelector('img');
-    const lbClose   = lb.querySelector('.lb-close');
-    const lbPrev    = lb.querySelector('.lb-prev');
-    const lbNext    = lb.querySelector('.lb-next');
-    const lbCounter = lb.querySelector('.lb-counter');
-    const lbDots    = lb.querySelector('.lb-dots');
+    const lb = document.getElementById('lightbox');
+    if (!lb) return;
+    const lbImg     = lb.querySelector<HTMLImageElement>('img');
+    const lbClose   = lb.querySelector<HTMLButtonElement>('.lb-close');
+    const lbPrev    = lb.querySelector<HTMLButtonElement>('.lb-prev');
+    const lbNext    = lb.querySelector<HTMLButtonElement>('.lb-next');
+    const lbCounter = lb.querySelector<HTMLElement>('.lb-counter');
+    const lbDots    = lb.querySelector<HTMLElement>('.lb-dots');
+    if (!lbImg || !lbClose || !lbPrev || !lbNext || !lbCounter || !lbDots) return;
 
-    let images  = [];
+    let images: string[]  = [];
     let current = 0;
 
-    // Build images list from all carousels on open
-    function openLightbox(carousel, startIdx) {
-      const prefix = carousel.dataset.prefix;
+    function openLightbox(carousel: HTMLElement, startIdx: number) {
+      const prefix = carousel.dataset.prefix || '';
       const count  = parseInt(carousel.dataset.count || '1');
       images  = Array.from({length: count}, (_,i) => `${prefix}${i+1}.png`);
       current = startIdx;
       renderDots();
       showSlide(current, false);
       lb.classList.add('open');
+      lb.removeAttribute('inert');
       document.body.style.overflow = 'hidden';
       lbClose.focus();
     }
 
     function closeLightbox() {
       lb.classList.remove('open');
+      lb.setAttribute('inert', '');
       document.body.style.overflow = '';
     }
 
@@ -667,69 +750,52 @@ deduction rates per CBDT circular and eliminating the manual one-by-one bottlene
       });
     }
 
-    function showSlide(idx, animate=true) {
+    function showSlide(idx: number, animate=true) {
       current = ((idx % images.length) + images.length) % images.length;
-      const src = images[current];
-
       if (animate) {
         lbImg.classList.add('fading');
         setTimeout(() => {
-          lbImg.src = src;
-          lbImg.onload = () => lbImg.classList.remove('fading');
+          lbImg.src = images[current];
+          lbImg.addEventListener('load', () => lbImg.classList.remove('fading'), {once:true});
         }, 200);
       } else {
-        lbImg.src = src;
+        lbImg.src = images[current];
       }
-
       lbCounter.textContent = `${current + 1} / ${images.length}`;
       lbDots.querySelectorAll('.lb-dot').forEach((d,i) => d.classList.toggle('on', i===current));
       lbPrev.disabled = images.length <= 1;
       lbNext.disabled = images.length <= 1;
     }
 
-    // Wire up carousel images
-    document.querySelectorAll('.carousel').forEach(carousel => {
-      carousel.querySelectorAll('.carousel-slide img').forEach((img, idx) => {
-        img.addEventListener('click', (e) => {
-          e.stopPropagation();
-          openLightbox(carousel, idx);
-        });
-        // Touch: only open if not a swipe
-        let touchStartX = 0, touchStartY = 0;
-        img.addEventListener('touchstart', (e) => {
-          touchStartX = e.touches[0].clientX;
-          touchStartY = e.touches[0].clientY;
-        }, {passive:true});
+    document.querySelectorAll<HTMLElement>('.carousel').forEach(carousel => {
+      carousel.querySelectorAll<HTMLImageElement>('.carousel-slide img').forEach((img, idx) => {
+        img.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(carousel, idx); });
+        let tx = 0, ty = 0;
+        img.addEventListener('touchstart', (e) => { tx=e.touches[0].clientX; ty=e.touches[0].clientY; }, {passive:true});
         img.addEventListener('touchend', (e) => {
-          const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
-          const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
-          if (dx < 8 && dy < 8) openLightbox(carousel, idx); // tap, not swipe
+          const dx=Math.abs(e.changedTouches[0].clientX-tx), dy=Math.abs(e.changedTouches[0].clientY-ty);
+          if (dx<8 && dy<8) openLightbox(carousel, idx);
         }, {passive:true});
       });
     });
 
-    // Controls
     lbClose.addEventListener('click', closeLightbox);
     lbPrev.addEventListener('click',  () => showSlide(current - 1));
     lbNext.addEventListener('click',  () => showSlide(current + 1));
-
-    // Click backdrop to close
     lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
 
-    // Keyboard
     document.addEventListener('keydown', (e) => {
       if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape')      closeLightbox();
-      if (e.key === 'ArrowRight')  showSlide(current + 1);
-      if (e.key === 'ArrowLeft')   showSlide(current - 1);
+      if (e.key==='Escape')     closeLightbox();
+      if (e.key==='ArrowRight') showSlide(current+1);
+      if (e.key==='ArrowLeft')  showSlide(current-1);
     });
 
-    // Swipe inside lightbox
     let lbTx = 0;
-    lb.addEventListener('touchstart', (e) => { lbTx = e.touches[0].clientX; }, {passive:true});
-    lb.addEventListener('touchend', (e) => {
+    lb.addEventListener('touchstart', (e:TouchEvent) => { lbTx=e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener('touchend', (e:TouchEvent) => {
       const diff = lbTx - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) showSlide(diff > 0 ? current+1 : current-1);
+      if (Math.abs(diff)>50) showSlide(diff>0?current+1:current-1);
     }, {passive:true});
   })();
 
