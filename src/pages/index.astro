@@ -7,13 +7,9 @@ const projects = [
     title: "Direct-from-Tally TDS Compliance Engine",
     imageCount: 9,
     imagePrefix: "/images/tds/tds-",
-    desc: `Built a full-cycle TDS management system connecting Excel directly to Tally Prime
-via ODBC — eliminating all manual ledger exports. Auto-calculates interest, late fees,
-and flags "No PAN" entries for higher deduction under Section 206AA. Integrated with
-TRACES portal for bulk PAN verification, instantly identifying inoperative PANs.`,
-    impact: `Reduced 3–4 day manual TDS cycle to <strong>~1 working day</strong> across 8 entities.
-PAN verification for 50+ records: ~4 hours → <strong>15 minutes</strong>.`,
-    tech: ["Tally ODBC","Advanced Excel","TRACES Portal","Section 206AA","VBA"],
+    desc: `Built a production-grade TDS management system inside Excel that connects directly to Tally Prime via ODBC — eliminating all manual ledger exports. Auto-calculates TDS amounts, interest, and late fees across 8 group companies simultaneously. Flags missing PANs and automatically applies the 20% higher deduction rate under Section 206AA. Integrated with TRACES portal for bulk vendor PAN verification, instantly identifying invalid, inoperative, or Aadhaar-unlinked records. Includes one-click challan-to-voucher matching and month-wise compliance summaries.`,
+    impact: `Reduced 3–5 day manual TDS cycle to <strong>~1 working day</strong> across 8 entities. Bulk PAN verification for 50+ vendors: ~4 hours → <strong>15 minutes</strong>. Zero regulatory penalties since deployment.`,
+    tech: ["Tally ODBC", "Advanced Excel", "VBA Macros", "Power Query", "TRACES Portal", "Section 206AA", "Multi-Entity Accounting"],
     reverse: false,
   },
   {
